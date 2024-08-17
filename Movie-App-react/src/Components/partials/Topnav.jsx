@@ -1,4 +1,4 @@
-import axios from "../../utils/axios";
+import axios from "../../Utils/axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import noimage from "/public/noimage.jpg";
@@ -40,7 +40,7 @@ const Topnav = () => {
       <input
         onChange={(e) => setQuery(e.target.value)}
         value={query}
-        className="hover:text-white duration-300 w-[50%] text-zinc-200 mx-10 p-2 text-xl outline-none border-none bg-zinc-800 rounded-lg"
+        className="hover:text-white duration-300 w-[50%] text-zinc-200 mx-10 p-2 text-xl outline-none border-none bg-transparent rounded-lg"
         type="text"
         placeholder="Search movies"
       />
