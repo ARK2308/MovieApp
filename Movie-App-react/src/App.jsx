@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './Components/Home';
 import Trending from './Components/Trending';
 import Popular from './Components/Popular';
+import Movie from './Components/Movie';
+import TvShows from './Components/TvShows';
 
 
 const App = () => {
@@ -12,6 +14,9 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/trending' element={<Trending />} />
         <Route path='/popular' element={<Popular />} />
+        <Route path='/movie' element={<Movie />} />
+        <Route path='/tv' element={<TvShows />} />
+
         
       </Routes>
     </div>
