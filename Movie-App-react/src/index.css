@@ -88,3 +88,23 @@ select option {
 select option:hover {
     background-color: #6556CD;
 }
+
+/* card componenets styling \
+ */
+
+ .card {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-overlay-title {
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .card:hover .card-overlay-title {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  

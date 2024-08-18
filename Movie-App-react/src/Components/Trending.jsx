@@ -14,6 +14,7 @@ const Trending = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const navigate = useNavigate();
+ 
 
   const GetTrending = async () => {
     try {

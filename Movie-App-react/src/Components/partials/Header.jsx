@@ -6,14 +6,14 @@ const Header = ({ data }) => {
     <div
       // for the header image that cones in the background
       style={{
-        background: `linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.7), rgba(0,0,0,.9)), url(https://image.tmdb.org/t/p/original/${
+        background: `linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.4), rgba(0,0,0,.7) ), url(https://image.tmdb.org/t/p/original/${
           data.backdrop_path || data.profile_path
         })`,
         backgroundSize: "cover", // Added to ensure the background image covers the area
         backgroundPosition: "center", // Center the background image
         backgroundRepeat: "no-repeat",
       }}
-      className="w-full h-[50vh] flex flex-col justify-end items-start  p-[4%]  "
+      className="w-full h-[70vh] flex flex-col justify-end   items-start  p-[4%]  "
     >
       {/* for the movie title */}
 

@@ -5,7 +5,7 @@ const HorizontalsCards = ({ data }) => {
   return (
    
      
-      <div className="w-full flex overflow-x-auto rounded-lg">
+      <div className="w-full flex overflow-x-auto shadow-2xl rounded-lg">
         {data.map((d, i) => (
           <div key={i} className="min-w-[35%] mr-5 ">
             <div className="w-full h-[70%] mb-2">
@@ -27,8 +27,9 @@ const HorizontalsCards = ({ data }) => {
               <i class="  text-yellow-500 ri-movie-2-fill"></i>{" "}
               {d.media_type.toUpperCase()}
             </p>
-          </div>
+          </div>          
         ))}
+      
       </div>
    
   );
