@@ -15,20 +15,36 @@ const Sidenav = () => {
         <h1 className="text-white mx-6 text-xl fomt-semibold mt-4 mx-10 ">
           New Feeds
         </h1>
-        <Link to="/trending" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm">
+        <Link
+          to="/trending"
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm"
+        >
           <i class="ri-fire-fill"></i> Trending
         </Link>
-        <Link to="/popular" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm">
+        <Link
+          to="/popular"
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm"
+        >
           <i class=" mr-1 ri-bard-fill"></i> Popular
         </Link>
-        <Link to="/movie" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm">
+        <Link
+          to="/movie"
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm"
+        >
           <i class=" mr-1 ri-movie-2-fill"></i> Movies
         </Link>
-        <Link to="/tv" className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm">
+        <Link
+          to="/tv"
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm"
+        >
           <i class=" mr-1 ri-tv-2-fill"></i> Tv Shows
         </Link>
-        <Link className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm">
-          <i class=" mr-1 ri-group-fill"></i> Peoples
+        <Link 
+          to="/person"
+        
+          className="hover:bg-[#6556CD] hover:text-white duration-300 rounded-lg p-3 mx-12 mt-2 text-sm"
+        >
+          <i className="mr-1 ri-group-fill"></i> People
         </Link>
       </nav>
       <hr className="border-none bg-zinc-500 h-[1px] mt-3" />

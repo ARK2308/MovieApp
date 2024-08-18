@@ -11,7 +11,7 @@ const Cards = ({ data }) => {
           <div className='relative'>
             <img 
               className='card-image h-[40vh] w-full object-cover rounded-lg opacity-100' 
-              src={`https://image.tmdb.org/t/p/original/${c.poster_path || c.backdrop_path}`} 
+              src={`https://image.tmdb.org/t/p/original/${c.poster_path || c.backdrop_path || c.profile_path}`}  
               
             />
             {/* Overlay title on the image */}
@@ -28,9 +28,7 @@ const Cards = ({ data }) => {
             <p className='text-sm'>
               {c.original_language === 'hi' ? 'Bollywood' : 'Hollywood'}
             </p>
-            <p className='text-sm'>
-              {Math.floor(c.runtime / 60)}h {c.runtime % 60}m
-            </p>
+        
           </div>
         </Link>
       ))}
