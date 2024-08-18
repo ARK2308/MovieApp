@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Cards = ({ data }) => {
+const Cards = ({ data , title}) => {
   return (
-    <div className='flex flex-wrap w-full justify-center'>
+    <div className='flex flex-wrap w-full h-full  justify-center'>
       {data.map((c, i) => (
         <Link 
-          className='w-[35vh] mr-[5%] mb-[5%] mt-[5%] rounded-lg' 
+          className='w-[35vh] mx-[2%]  shadow-2xl  mb-[1%] mt-[5%]  justify-center rounded-lg' 
           key={i}>
           <div className='relative'>
             <img 
