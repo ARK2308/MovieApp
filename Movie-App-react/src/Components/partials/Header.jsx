@@ -17,13 +17,13 @@ const Header = ({ data }) => {
     >
       {/* for the movie title */}
 
-      <h1 className=" w-[70%] text-5xl text-white font-black opacity-90 mr-5  ">
+      <h1 className=" w-[70%] text-4xl text-white font-black opacity-90 mr-5  ">
         {data.name || data.title || data.original_name || data.original_title}
       </h1>
 
       {/* for the movie overview */}
 
-      <p className="text-zinc-200 w-[70%] mt-2 ">
+      <p className="text-zinc-200 text-sm w-[70%] mt-2 ">
         {data.overview.slice(0, 100)}...
         <Link className="text-blue-400">more</Link>
       </p>
