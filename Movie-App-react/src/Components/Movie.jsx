@@ -74,7 +74,7 @@ const Movie = () => {
         loader={<h4>Loading...</h4>}
         endMessage={<p>No more data</p>}
       >
-        <Cards data={movie} />
+        <Cards data={movie} title="movie" />
       </InfiniteScroll>
     </div>
   ) : (

@@ -69,7 +69,7 @@ const People = () => {
         loader={<h4>Loading...</h4>}
         endMessage={<p>No more data</p>}
       >
-        <Cards data={people} />
+        <Cards data={people} title="person" />
       </InfiniteScroll>
     </div>
   ) : (

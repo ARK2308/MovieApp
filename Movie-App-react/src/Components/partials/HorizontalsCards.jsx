@@ -1,5 +1,6 @@
 import React from "react";
 import Dropdown from "./Dropdown";
+import { Link } from "react-router-dom";
 
 const HorizontalsCards = ({ data }) => {
   return (
@@ -7,7 +8,7 @@ const HorizontalsCards = ({ data }) => {
      
       <div className="w-full flex overflow-x-auto shadow-2xl rounded-lg">
         {data.map((d, i) => (
-          <div key={i} className="min-w-[35%] mr-5 ">
+          <Link to={`/${d.media_type}/details/${d.id}`} key={i} className="min-w-[35%] mr-5 ">
             <div className="w-full h-[70%] mb-2">
               <img
                 className="w-full h-full object-cover rounded-md"
@@ -27,7 +28,7 @@ const HorizontalsCards = ({ data }) => {
               <i class="  text-yellow-500 ri-movie-2-fill"></i>{" "}
               {d.media_type.toUpperCase()}
             </p>
-          </div>          
+          </Link>          
         ))}
       
       </div>

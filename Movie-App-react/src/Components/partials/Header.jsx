@@ -24,8 +24,8 @@ const Header = ({ data }) => {
       {/* for the movie overview */}
 
       <p className="text-zinc-200 text-sm w-[70%] mt-2 ">
-        {data.overview.slice(0, 100)}...
-        <Link className="text-blue-400">more</Link>
+        {data.overview.slice(0, 200)}...
+        <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400">more</Link>
       </p>
 
       {/* for the movie details */}
