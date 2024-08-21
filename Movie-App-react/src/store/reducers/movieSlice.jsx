@@ -1,28 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
-
-
-
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  info : null ,
-}
+  info: null,
+};
 
 export const movieSlice = createSlice({
-    name: 'movie',
-    initialState,
-    reducers: {
-       
-        loadmovie: (state, action) => {
-          state.info = action.payload
-        },
-
-        removemovie: (state , action) => {
-          state.info = null
-        }
-
+  name: 'movie',
+  initialState,
+  reducers: {
+    loadmovie: (state, action) => {
+      state.info = action.payload;
     },
-  })
+    removemovie: (state) => {
+      state.info = null;
+    },
+  },
+});
 
-  export const {  loadmovie , removemovie } = movieSlice.actions
-
-export default movieSlice.reduce
+export const { loadmovie, removemovie } = movieSlice.actions;
+export default movieSlice.reducer; // Corrected typo: 'reduce' to 'reducer'
