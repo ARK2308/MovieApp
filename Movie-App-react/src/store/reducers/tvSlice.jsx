@@ -23,4 +23,4 @@ export const tvSlice = createSlice({
 
   export const {  loadtv , removetv } = tvSlice.actions
 
-export default tvSlice.reduce
+export default tvSlice.reducer

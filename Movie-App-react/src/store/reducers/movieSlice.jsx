@@ -19,3 +19,4 @@ export const movieSlice = createSlice({
 
 export const { loadmovie, removemovie } = movieSlice.actions;
 export default movieSlice.reducer; // Corrected typo: 'reduce' to 'reducer'
+// 

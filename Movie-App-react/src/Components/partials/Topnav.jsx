@@ -55,6 +55,7 @@ const Topnav = () => {
         <div className="  z-[100] absolute w-[50%] max-h-[50vh] bg-zinc-200 top-[90%] rounded-md overflow-auto">
           {searches.map((s, i) => (
             <Link
+              to={`/${s.media_type}/details/${s.id}`}
               key={i}
               className="text-xl hover:text-white duration-300 hover:bg-zinc-800 bg-zinc-400 w-[100%] p-5 flex justify-start items-center border-b-2 border-zinc-600"
             >
