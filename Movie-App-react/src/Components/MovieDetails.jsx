@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { asyncloadmovie } from "../store/actions/movieActions";
 import { removemovie } from "../store/reducers/movieSlice";
+import HorizontalsCards from "./partials/HorizontalsCards";
+import Cards from "./partials/Cards";
 
 const MovieDetails = () => {
  const { pathname } = useLocation();
@@ -26,8 +28,9 @@ const MovieDetails = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.7)"
       }}
-      className="w-screen h-screen px-[10%] py-[1%] text-zinc-300"
+      className="w-screen h-[140vh] px-[10%] py-[1%] text-zinc-300 overflow-y-auto shadow-lg"
     >
       {/* part1 navigation */}
       <nav className=" h-[10vh] w-full flex items-center gap-10">
@@ -101,7 +104,7 @@ const MovieDetails = () => {
       </div>
 
       {/* part 3 available on rent or buy */}
-{/* 
+
       <div className="mt-3">
         {info.watchProviders &&
           info.watchProviders.flatrate &&
@@ -123,7 +126,14 @@ const MovieDetails = () => {
               alt={`${w.provider_name}`}
             />
           ))}
-      </div> */}
+      </div>
+
+      {/* part 4 similar movies */}
+      <div className="mt-[5%]">
+        <h1 className="text-4xl font-semibold text-white mb-5 flex justify-start w-full h-[8vh] bg-zinc-900 p-2 rounded-md">Similar Movies</h1>
+      <HorizontalsCards
+       data={info.recommendations.length > 0 ? info.recommendations: info.similar } />
+       </div>
     </div>
   ) : (
     <h1>Loading...</h1>
