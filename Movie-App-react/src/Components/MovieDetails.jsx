@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { asyncloadmovie } from "../store/actions/movieActions";
 import { removemovie } from "../store/reducers/movieSlice";
 import HorizontalsCards from "./partials/HorizontalsCards";
 import Cards from "./partials/Cards";
+import Trailer from "./partials/Trailer";
 
 const MovieDetails = () => {
  const { pathname } = useLocation();
@@ -28,9 +29,10 @@ const MovieDetails = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.7)"
+        boxShadow: "0 8px 20px rgba(0, 0, 0, 0.7)",
+        
       }}
-      className="w-screen h-[140vh] px-[10%] py-[1%] text-zinc-300 overflow-y-auto shadow-lg"
+      className="w-screen h-[140vh] px-[10%] py-[1%] text-white overflow-y-auto shadow-lg"
     >
       {/* part1 navigation */}
       <nav className=" h-[10vh] w-full flex items-center gap-10">
@@ -59,7 +61,7 @@ const MovieDetails = () => {
       {/* part2 poster and details */}
       <div className="w-full  flex text-white">
         <img
-          className="card-image w-64 mt-5 h-[52vh] w-full object-cover rounded-lg opacity-100"
+          className="card-image w-[28%] mt-5 h-[52vh] w-full object-cover rounded-lg opacity-100"
           src={`https://image.tmdb.org/t/p/original/${
             info.detail.poster_path || info.detail.backdrop_path
           }`}
@@ -94,10 +96,12 @@ const MovieDetails = () => {
           <p className="mb-6">{info.detail.overview}</p>
 
           <Link
-           to={`${pathname}/trailer`}
-           className="text-white bg-[#6556CD] p-3 rounded-lg  font-semibold hover:text-[#6556CD] hover:bg-white duration-500 "> 
-           <i class="ri-play-fill mx-2"></i>Play Trailer
-           </Link>
+  to={`${pathname}/trailer`}
+  className="text-white bg-[#6556CD] p-3 rounded-lg font-semibold hover:text-[#6556CD] hover:bg-white duration-500"
+>
+  <i className="ri-play-fill mx-2"></i>Play Trailer
+</Link>
+
         
            
         </div>
@@ -134,6 +138,7 @@ const MovieDetails = () => {
       <HorizontalsCards
        data={info.recommendations.length > 0 ? info.recommendations: info.similar } />
        </div>
+       <Outlet />
     </div>
   ) : (
     <h1>Loading...</h1>
