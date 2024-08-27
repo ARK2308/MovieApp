@@ -7,7 +7,7 @@ const HorizontalsCards = ({ data }) => {
    
      
       <div className="w-full flex overflow-x-auto shadow-2xl rounded-lg">
-        {data.map((d, i) => (
+        { data.length > 0 ? data.map((d, i) => (
           <Link to={`/${d.media_type}/details/${d.id}`} key={i} className="min-w-[35%] mr-5 ">
             <div className="w-full h-[70%] mb-2">
               <img
@@ -29,7 +29,7 @@ const HorizontalsCards = ({ data }) => {
               {d.media_type.toUpperCase()}
             </p>
           </Link>          
-        ))}
+        )) : <h1 className="text-3xl text-white font-semibold opacity-90">No data found</h1>}
       
       </div>
    
