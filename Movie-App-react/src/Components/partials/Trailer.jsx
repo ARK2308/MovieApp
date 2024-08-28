@@ -16,6 +16,7 @@ const Trailer = () => {
           className=" absolute top-8 right-[12%] hover:text-[#6556CD] ri-close-fill text-4xl"> 
         </Link>
       <ReactPlayer
+     
        height={500}
       width={1000}
       className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2"

@@ -36,7 +36,9 @@ const Header = ({ data }) => {
       </p>
 
       {/* for the trailer */}
-      <Link className="text-white bg-[#6556CD] p-3 rounded-lg mt-3 font-semibold hover:text-[#6556CD] hover:bg-white duration-500 "> Watch Trailer</Link>
+      <Link 
+      to={`/${data.media_type}/details/${data.id}/trailer`} 
+      className="text-white bg-[#6556CD] p-3 rounded-lg mt-3 font-semibold hover:text-[#6556CD] hover:bg-white duration-500 "> Watch Trailer</Link>
     </div>
   );
 };
