@@ -8,7 +8,7 @@ import TvShows from "./Components/TvShows";
 import People from "./Components/People";
 import MovieDetails from "./Components/MovieDetails";
 import TvShowsDetails from "./Components/TvShowsDetails"; // Ensure the file name and import match
-import PersonDetails from "./Components/PersonDetails"; // Ensure the file name and import match
+import PersonDetails from "./Components/Persondetails"; // Ensure the file name and import match
 import Trailer from "./Components/partials/Trailer";
 
 const App = () => {

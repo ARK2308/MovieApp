@@ -1,6 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { asyncloadmovie } from "../store/actions/movieActions";
 import { removemovie } from "../store/reducers/movieSlice";
 import HorizontalsCards from "./partials/HorizontalsCards";
@@ -8,7 +14,8 @@ import Cards from "./partials/Cards";
 import Trailer from "./partials/Trailer";
 
 const MovieDetails = () => {
- const { pathname } = useLocation();
+  const [show, setShow] = useState(false);
+  const { pathname } = useLocation();
   const navigate = useNavigate();
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -30,7 +37,6 @@ const MovieDetails = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.7)",
-        
       }}
       className="w-screen h-[140vh] px-[10%] py-[1%] text-white overflow-y-auto shadow-lg"
     >
@@ -60,6 +66,13 @@ const MovieDetails = () => {
 
       {/* part2 poster and details */}
       <div className="w-full  flex text-white">
+        {
+          show? (
+            <div className="absolute top-0 left-0 w-full h-full">
+            <iframe src="https://vidsrc.xyz/embed/movie/" frameborder="0"></iframe>
+            </div>
+          ) : null
+        }
         <img
           className="card-image w-[28%] mt-5 h-[52vh] w-full object-cover rounded-lg opacity-100"
           src={`https://image.tmdb.org/t/p/original/${
@@ -78,32 +91,37 @@ const MovieDetails = () => {
           </h1>
 
           <div className="flex items-center gap-6 text-white mt-2">
-
-          <span className=" rounded-full text-xl font-semibold bg-yellow-600 text-white w-[7vh] h-[7vh] flex justify-center items-center mt-2">
+            <span className=" rounded-full text-xl font-semibold bg-yellow-600 text-white w-[7vh] h-[7vh] flex justify-center items-center mt-2">
               {(info.detail.vote_average * 10).toFixed()}
               <sup>%</sup>
             </span>
-            <h1 className="text-xl mr-2  flex items-center leading-10">User Score</h1>
-            <h1 >{info.detail.release_date}</h1>
+            <h1 className="text-xl mr-2  flex items-center leading-10">
+              User Score
+            </h1>
+            <h1>{info.detail.release_date}</h1>
             <h1>{info.detail.runtime} min</h1>
-            <h1>
-              {info.detail.genres.map((g) =>g. name).join(",")}
-              </h1>
-        
+            <h1>{info.detail.genres.map((g) => g.name).join(",")}</h1>
           </div>
-          <h1 className="text-xl  font-semibold italic mt-2">{info.detail.tagline}</h1>
+          <h1 className="text-xl  font-semibold italic mt-2">
+            {info.detail.tagline}
+          </h1>
           <h1 className="text-3xl font-semibold   mt-1">Overview</h1>
           <p className="mb-6">{info.detail.overview}</p>
-
-          <Link
-  to={`${pathname}/trailer`}
-  className="text-white bg-[#6556CD] p-3 rounded-lg font-semibold hover:text-[#6556CD] hover:bg-white duration-500"
->
-  <i className="ri-play-fill mx-2"></i>Play Trailer
-</Link>
-
-        
-           
+           <div className="flex gap-4 items-center">
+           <Link
+            to={`${pathname}/trailer`}
+            className="text-white bg-[#6556CD] p-3 rounded-lg font-semibold hover:text-[#6556CD] hover:bg-white duration-500"
+          >
+            <i className="ri-play-fill mx-2"></i>Play Trailer
+          </Link>
+           <button
+            // to={`${pathname}/trailer`}
+            className="text-white bg-[#6556CD] p-3 rounded-lg font-semibold hover:text-[#6556CD] hover:bg-white duration-500"
+          >
+            <i className="ri-play-fill mx-2"></i>Watch Movie
+          </button>
+           </div>
+      
         </div>
       </div>
 
@@ -134,11 +152,18 @@ const MovieDetails = () => {
 
       {/* part 4 similar movies */}
       <div className="mt-[5%]">
-        <h1 className="text-4xl font-semibold text-white mb-5 flex justify-start w-full h-[8vh] bg-zinc-900 p-2 rounded-md">Similar Movies</h1>
-      <HorizontalsCards
-       data={info.recommendations.length > 0 ? info.recommendations: info.similar } />
-       </div>
-       <Outlet />
+        <h1 className="text-4xl font-semibold text-white mb-5 flex justify-start w-full h-[8vh] bg-zinc-900 p-2 rounded-md">
+          Similar Movies
+        </h1>
+        <HorizontalsCards
+          data={
+            info.recommendations.length > 0
+              ? info.recommendations
+              : info.similar
+          }
+        />
+      </div>
+      <Outlet />
     </div>
   ) : (
     <h1>Loading...</h1>
