@@ -12,6 +12,7 @@ import { removemovie } from "../store/reducers/movieSlice";
 import HorizontalsCards from "./partials/HorizontalsCards";
 import Cards from "./partials/Cards";
 import Trailer from "./partials/Trailer";
+import MovieModal from "./partials/MovieModal";
 
 const MovieDetails = () => {
   const [show, setShow] = useState(false);
@@ -66,18 +67,29 @@ const MovieDetails = () => {
 
       {/* part2 poster and details */}
       <div className="w-full  flex text-white">
-        {
-          show? (
+        {/* {
+          show ? (
             <div className="absolute top-0 left-0 w-full h-full">
-            <iframe src="https://vidsrc.xyz/embed/movie/" frameborder="0"></iframe>
+              <iframe
+                src={`https://vidsrc.xyz/embed/movie/${info.externalid.imdb_id}`}
+                width="100%"
+                height="full"
+                allow="autoplay"
+                allowFullScreen
+              >
+              </iframe>
             </div>
           ) : null
-        }
+        } */}
+
+
+
+
+
         <img
           className="card-image w-[28%] mt-5 h-[52vh] w-full object-cover rounded-lg opacity-100"
-          src={`https://image.tmdb.org/t/p/original/${
-            info.detail.poster_path || info.detail.backdrop_path
-          }`}
+          src={`https://image.tmdb.org/t/p/original/${info.detail.poster_path || info.detail.backdrop_path
+            }`}
           alt="Movie Poster"
         />
 
@@ -107,21 +119,23 @@ const MovieDetails = () => {
           </h1>
           <h1 className="text-3xl font-semibold   mt-1">Overview</h1>
           <p className="mb-6">{info.detail.overview}</p>
-           <div className="flex gap-4 items-center">
-           <Link
-            to={`${pathname}/trailer`}
-            className="text-white bg-[#6556CD] p-3 rounded-lg font-semibold hover:text-[#6556CD] hover:bg-white duration-500"
-          >
-            <i className="ri-play-fill mx-2"></i>Play Trailer
-          </Link>
-           <button
-            // to={`${pathname}/trailer`}
-            className="text-white bg-[#6556CD] p-3 rounded-lg font-semibold hover:text-[#6556CD] hover:bg-white duration-500"
-          >
-            <i className="ri-play-fill mx-2"></i>Watch Movie
-          </button>
-           </div>
-      
+          <div className="flex gap-4 items-center">
+            <Link
+              to={`${pathname}/trailer`}
+              className="text-white bg-[#6556CD] p-3 rounded-lg font-semibold hover:text-[#6556CD] hover:bg-white duration-500"
+            >
+              <i className="ri-play-fill mx-2"></i>Play Trailer
+            </Link>
+
+            <button
+              onClick={() => setShow(true)}
+              className="text-white bg-[#6556CD] p-3 rounded-lg font-semibold hover:text-[#6556CD] hover:bg-white duration-500"
+            >
+              <i className="ri-play-fill mx-2"></i>Watch Movie
+            </button>
+            <MovieModal show={show} setShow={setShow} videoID={info.externalid.imdb_id} />
+          </div>
+
         </div>
       </div>
 
